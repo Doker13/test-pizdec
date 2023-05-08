@@ -2,9 +2,10 @@
 #include <stdlib.h>
 
 #include "quizz_data.h"
+#include "quizz_create.h"
 
 int amount_of_quizzes() {
-  char *file = "quizz_data.csv";
+  char *file = "data/quizz_data.csv";
   FILE *fp = fopen(file, "r");
   if (!fp) {
     return -1;
@@ -28,7 +29,7 @@ int amount_of_quizzes() {
 }
 
 struct quizz *get_quiz(int qNumber) {
-  char *file = "quizz_data.csv";
+  char *file = "data/quizz_data.csv";
   FILE *fp = fopen(file, "r");
   if (!fp) {
     return NULL;
@@ -75,7 +76,7 @@ struct quizz *get_quiz(int qNumber) {
 }
 
 int fill_data_with_quizz(struct quizz *q) {
-  char *file = "quizz_data.csv";
+  char *file = "data/quizz_data.csv";
   FILE *fp = fopen(file, "a");
   if (!fp) {
     return -1;
