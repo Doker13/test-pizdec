@@ -14,4 +14,5 @@ int main() {
   fill_data_with_quizz(q);
   free(q);
   return 0;
+  
 }
