@@ -1,13 +1,9 @@
-all: main
+all: bin/a.out
 
-main: main.o quizz_data.o quizz_create.o
-	gcc -Wall -o main main.o quizz_data.o quizz_create.o
-main.o: main.c
-	gcc -Wall -c -o main.o main.c
-quizz_data.o: quizz_data.c
-	gcc -Wall -c -o quizz_data.o quizz_data.c
-quizz_create.o: quizz_create.c
-	gcc -Wall -c -o quizz_create.o quizz_create.c
+bin/a.out: src/lib/quizz_create.c src/lib/quizz_run.c src/lib/quizz_data.c src/app/main.c
+	gcc -Wall -I src -g -O0 -o bin/a.out src/lib/quizz_create.c src/lib/quizz_run.c src/lib/quizz_data.c src/app/main.c
 
-clean: 
-	rm *.o
+.PHONY: run
+
+run: bin/a.out
+	./bin/a.out
